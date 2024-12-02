@@ -19,38 +19,35 @@ try:
     if nr_letters < 1 or nr_symbols < 1 or nr_numbers < 1:
         raise ValueError("Please enter a number greater than 1")
 
-    # Initialize empty lists to store the chosen characters
-    letters_in_password = []
-    symbols_in_password = []
-    numbers_in_password = []
+    # Initialize empty list to store the chosen characters
+    password_in_list = []
 
     # Randomly select the specified number of letters and append to the list
     for letter in range(nr_letters):
-        selected_letters = random.choice(letters)
-        letters_in_password.append(selected_letters)
+        selected_letters = random.choice(letters)  # Randomly pick a letter from the list
+        password_in_list.append(selected_letters)
 
     # Randomly select the specified number of symbols and append to the list
     for symbol in range(nr_symbols):
-        selected_symbols = random.choice(symbols)
-        symbols_in_password.append(selected_symbols)
+        selected_symbols = random.choice(symbols)  # Randomly pick a symbol from the list
+        password_in_list.append(selected_symbols)
 
     # Randomly select the specified number of numbers and append to the list
     for number in range(nr_numbers):
-        selected_numbers = random.choice(numbers)
-        numbers_in_password.append(selected_numbers)
+        selected_numbers = random.choice(numbers)  # Randomly pick a number from the list
+        password_in_list.append(selected_numbers)
 
-    # Combine all the selected characters into one list
-    password_in_list = letters_in_password + symbols_in_password + numbers_in_password
+    # Shuffle the list to ensure the password characters are in random order
     random.shuffle(password_in_list)
 
     # Convert the list into a string
     password = ""
     for item in password_in_list:
-        password += str(item)
+        password += str(item)  # Convert each item to a string and add it to the password string
 
     # Display the generated password
     print(f'Your generated 🔐password is {password}')
 
-# Catch ValueErrors (for invalid input) and display the error message
+# Catch ValueErrors (for invalid input) and display the e
 except ValueError as e:
     print(f"Error: {e}")
