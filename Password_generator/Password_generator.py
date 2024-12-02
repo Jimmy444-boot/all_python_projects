@@ -40,11 +40,12 @@ try:
         numbers_in_password.append(selected_numbers)
 
     # Combine all the selected characters into one list
-    password_in_string = letters_in_password + symbols_in_password + numbers_in_password
+    password_in_list = letters_in_password + symbols_in_password + numbers_in_password
+    random.shuffle(password_in_list)
 
     # Convert the list into a string
     password = ""
-    for item in password_in_string:
+    for item in password_in_list:
         password += str(item)
 
     # Display the generated password
